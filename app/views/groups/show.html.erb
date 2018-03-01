@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @group.description %>
+</p>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
+
+<hr>
+
+<h3>Members</h3>
+<ul>
+  <% @group.users.each do |user| %>
+    <li><%= link_to user.profile.name, user.profile %></li>
+  <% end %>
+</ul>
+
+<hr>
+
+<!-- <Niyati - the code below checks if a user exists in the group then dont show Join group > -->
+<% if @group.users.include?(current_user) %>
+  <%= link_to 'Leave Group', leave_group_path(@group), class: 'btn btn-outline-success' %>
+<% else %>
+  <%= link_to 'Join Group', join_group_path(@group), class: 'btn btn-outline-success' %>
+<% end %>

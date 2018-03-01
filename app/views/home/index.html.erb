@@ -1,0 +1,22 @@
+<h1>Welcome to my Facebook</h1>
+<p><%= link_to 'Create your Profile', new_profile_path, class: 'btn btn-outline-primary btn-lg' %></p>
+
+<h3>New member: <%= @latest_profile.name %></h3>
+<hr>
+
+<div class="row">
+  <div class="col-mid-4">
+    <div class="card card-body">
+      <%= render 'status_updates/form' %>
+    </div>
+    <!-- <Niyati - add a loop to show all the status updates> -->
+    <% @status_updates.each do |status| %>
+      <div class="card card-body">
+        <h4><%= status.title %></h4>
+        <p><%= status.content %></p>
+        <p><%= status.user.profile.name %> posted <%= time_ago_in_words(status.created_at) %> ago</p>
+      </div>
+    <% end %>
+  </div>
+
+</div>

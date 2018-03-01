@@ -1,0 +1,16 @@
+
+<%= simple_form_for(@profile) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <!-- <%= f.association :user %> Niyati commented it coz we dont want users coming in drop down list-->
+    <%= f.input :name %>
+    <%= f.input :picture %>
+    <%= f.input :bio %>
+    <%= f.input :country %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

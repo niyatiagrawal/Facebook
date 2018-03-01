@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Facebook</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!-- <Niyati add the nav part, right click save as Rails partial -> generate it and save as layout/navbar and the below automatically comes> -->
+    <%= render 'layouts/navbar' %>
+    <!-- <Niyati - to have spaves on the side> Adding yiled says the content ofthe webpafge shpuld be placed withing container -->
+    <div class="container">
+        <%= yield %>
+    </div>
+
+  </body>
+</html>
